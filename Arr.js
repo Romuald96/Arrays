@@ -28,17 +28,13 @@ function filterByLength(arr, length) {
   return arr.filter(str=> str.length>length)
 }
 function commonElements(arr1, arr2) {
-  const arr = [];
-  const uniquearr = [];
-  arr1.forEach(el=> { 
-    if (arr2.includes(el))
-    arr.push(el)
-  });
-  arr.forEach(item=> {
-    if (uniquearr.indexOf(item) === -1)
-    uniquearr.push(item)
+  let concatedArr = arr1.concat(arr2);
+  let commonArr = [];
+  concatedArr.forEach(el=> {
+    if (commonArr.indexOf(el)==-1)
+    commonArr.push(el)
   })
-  return uniquearr;
+  return commonArr
 }
 function extractNames(users) {
   return users.map(user=>user.name)
@@ -46,3 +42,4 @@ function extractNames(users) {
 function sortArray(arr) {
   return arr.sort((a,b) => (a-b))
 }
+module.exports = {incrementArray,sumArray,sortArray,squareArray,uniqueArray,uppercaseArray,extractNames,commonElements,filterByLength,stringLengths}
